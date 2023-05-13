@@ -16,3 +16,7 @@ export
     permanentAddress: string;
     emergencyContactNo: string;
 };
+
+export interface IUserMethods {
+    fullName(): string;
+}
