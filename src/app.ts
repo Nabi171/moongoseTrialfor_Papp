@@ -1,11 +1,11 @@
 import express, { Application, Request, Response, NextFunction } from "express";
 import cors from "cors";
 import { Schema, model } from "mongoose";
-import { stringify } from "qs";
+// import { stringify } from "qs";
 
 const app: Application = express();
 
-//using cors
+// using cors
 app.use(cors());
 
 //parse data 
@@ -110,6 +110,37 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
         },
 
     })
+
+    //  Create a Model.
+    const User = model<IUser>('User', userSchema);
+
+
+    const createUserToDb = async () => {
+        const user = new User({
+            id: '441',
+            role: "student",
+            password: 'jhakana',
+            name: {
+                firstName: "Mexbaul",
+                middleName: 'Abedin',
+                lastName: 'Persian'
+            },
+            gender: "male",
+            email: 'abc@gmail.com',
+            contactNo: '0234545',
+            presentAddress: 'Ugans',
+            permanentAddress: 'Usa',
+            emergencyContactNo: '0123434'
+        });
+        await user.save();
+        console.log(user)
+    };
+
+    createUserToDb();
+
+
+
+
 
 })
 
