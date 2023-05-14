@@ -19,10 +19,13 @@ export const getUserByIdFromDB = async (payload: string): Promise<IUser | null> 
 };
 
 
-export const getAdminUsersFromDB = async (payload: string): Promise<IUser | null> => {
-    const user1 = new User();
-    return user1;
+export const getAdminUsersFromDB = async (payload: string) => {
+    const admins = await User.getAdminUsers();
+    return admins;
 
 };
 
-
+//class >attach>method>direct call using class
+//user newuser
+//user .instance methods
+//uyser.getAdminUsers()
