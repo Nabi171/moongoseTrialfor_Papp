@@ -19,7 +19,7 @@ export const getUserByIdFromDB = async (payload: string): Promise<IUser | null> 
 };
 
 
-export const getAdminUsersFromDB = async (payload: string) => {
+export const getAdminUsersFromDB = async () => {
     const admins = await User.getAdminUsers();
     return admins;
 
